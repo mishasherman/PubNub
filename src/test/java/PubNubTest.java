@@ -10,17 +10,19 @@ import java.util.Arrays;
 public class PubNubTest {
     String channelName;
     String channelGroupName;
+    PNConfiguration pnConfiguration;
 
 
     @Before
     public void beforeEachTest() {
+        pnConfiguration = getPNConfiguration();
         channelName = getRandomString("channel-", 5);
         channelGroupName = "cg1";
     }
 
     @Test
     public void testChannelSubscribeUnsubscribe () throws Exception {
-        PubNubPubSub pubsub = new PubNubPubSub(getPNConfiguration());
+        PubNubPubSub pubsub = new PubNubPubSub(pnConfiguration);
 
         pubsub.AddChannelGroup(channelGroupName, new String[]{channelName});
         Assert.assertTrue(checkChannelBelongToChannelGroup(pubsub, channelGroupName, channelName,true));
@@ -45,7 +47,7 @@ public class PubNubTest {
                 getRandomString("msg-", 5)
         };
 
-        PubNubPubSub pubsub = new PubNubPubSub(getPNConfiguration());
+        PubNubPubSub pubsub = new PubNubPubSub(pnConfiguration);
         pubsub.Subscribe(new String[]{channelName});
         Assert.assertTrue(checkUserSubscribedToChannel(pubsub, channelName, pubsub.GetUUID(), true));
 
