@@ -10,6 +10,7 @@ Test file is src/test/java/PubNubTest
 It contains 2 test scenarios :
   - testChannelSubscribeUnsubscribe
   - testChannelHistory
+  - testMessageOne2Many
   
 I used to run each scenario from within ItelliJ IDEA 
   - right-click on scenario name (testChannelSubscribeUnsubscribe) -> Run
