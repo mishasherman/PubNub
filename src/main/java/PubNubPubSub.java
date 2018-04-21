@@ -54,7 +54,7 @@ public class PubNubPubSub {
     }
 
     public void Subscribe(String[] channels) {
-        System.out.printf("User - %s, subscribe on channels - %s\n", GetUUID(), new ArrayList<>(Arrays.asList(channels)));
+        System.out.printf("User - %s, will attempt to subscribe on channels - %s\n", GetUUID(), new ArrayList<>(Arrays.asList(channels)));
         pubNub.subscribe()
                 .channels(Arrays.asList(channels)) // subscribe to channels
                 .withPresence()
@@ -62,7 +62,7 @@ public class PubNubPubSub {
     }
 
     public void Unsubscribe(String[] channels) {
-        System.out.printf("User - %s, unsubscribe from channels - %s\n", GetUUID(), new ArrayList<>(Arrays.asList(channels)));
+        System.out.printf("User - %s, will attempt to unsubscribe from channels - %s\n", GetUUID(), new ArrayList<>(Arrays.asList(channels)));
         pubNub.unsubscribe()
                 .channels(Arrays.asList(channels)) // unsubscribe from channels
                 .execute();

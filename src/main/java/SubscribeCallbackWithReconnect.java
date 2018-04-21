@@ -25,7 +25,7 @@ public class SubscribeCallbackWithReconnect extends SubscribeCallback{
     @Override
     public void presence(PubNub pubnub, PNPresenceEventResult presence) {
         if (presence.getEvent().equals("join")) {
-            System.out.printf("User %s subscribed to channel - %s\n", pubnub.getConfiguration().getUuid(), presence.getChannel());
+            System.out.printf("User %s joined channel - %s, received by - %s\n", presence.getUuid(), presence.getChannel(), pubnub.getConfiguration().getUuid());
         }
     }
 }
